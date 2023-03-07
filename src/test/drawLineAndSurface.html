@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draw Fat Line</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import * as THREE from 'three';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        1,
+        500
+      );
+      camera.position.set(0, 0, 100);
+      camera.lookAt(0, 0, 0);
+
+      const scene = new THREE.Scene();
+
+      /**
+       * axesHelper
+       */
+      const axesHelper = new THREE.AxesHelper(25);
+      scene.add(axesHelper);
+
+      /**
+       * OrbitControls
+       */
+      const controls = new OrbitControls(camera, renderer.domElement);
+
+      // let pointLight = new THREE.PointLight(0xffffff);
+      // pointLight.position.set(0, 20, 0);
+      // scene.add(pointLight);
+
+      /**
+       * Main
+       */
+
+      function createLine(length, color) {
+        let lineGeometry = new THREE.CapsuleGeometry(0.2, length, 4, 8);
+        let material = new THREE.MeshBasicMaterial();
+        scene.add(line);
+        return line;
+      }
+
+      const lineGeometry = new THREE.CapsuleGeometry(0.2, 20, 4, 8);
+      const surfaceGeometry = new THREE.BoxGeometry(40, 0.2, 40);
+      const whiteMaterial = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+      });
+      const blueMaterial = new THREE.MeshBasicMaterial({
+        color: 0x77aa88,
+      });
+      const line1 = new THREE.Mesh(lineGeometry, whiteMaterial);
+      const line2 = new THREE.Mesh(lineGeometry, whiteMaterial);
+      const line3 = new THREE.Mesh(lineGeometry, whiteMaterial);
+      const line4 = new THREE.Mesh(lineGeometry, whiteMaterial);
+      scene.add(line1);
+      scene.add(line2);
+      scene.add(line3);
+      scene.add(line4);
+      line4.position.set(0, 0, 10);
+      line4.rotation.x += Math.PI / 2;
+
+      const surface1 = new THREE.Mesh(surfaceGeometry, blueMaterial);
+      scene.add(surface1);
+
+      line1.rotation.x += Math.PI / 4;
+      line1.position.y += 10 / Math.sqrt(2);
+      line1.position.z += 10 / Math.sqrt(2);
+
+      line2.rotation.z += Math.PI / 2;
+
+      line3.position.z += 10 * Math.sqrt(2);
+      line3.position.y += 4;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+  </body>
+</html>

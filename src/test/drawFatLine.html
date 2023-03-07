@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draw Fat Line</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import * as THREE from 'three';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        1,
+        500
+      );
+      camera.position.set(0, 0, 100);
+      camera.lookAt(0, 0, 0);
+
+      const scene = new THREE.Scene();
+
+      /**
+       * axesHelper
+       */
+      const axesHelper = new THREE.AxesHelper(25);
+      // scene.add(axesHelper);
+
+      /**
+       * OrbitControls
+       */
+      const controls = new OrbitControls(camera, renderer.domElement);
+
+      /**
+       * Main
+       */
+
+      const geometry = new THREE.CapsuleGeometry(0.2, 20, 4, 8);
+      const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const line1 = new THREE.Mesh(geometry, material);
+      const line2 = new THREE.Mesh(geometry, material);
+      scene.add(line1);
+      scene.add(line2);
+
+      line1.rotation.x += Math.PI / 4;
+      line1.position.y += 10 / Math.sqrt(2);
+      line1.position.z += 10 / Math.sqrt(2);
+
+      line2.rotation.z += Math.PI / 2;
+
+      // scene.rotation.x += -Math.PI / 4;
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+        // scene.rotation.x += -0.01;
+      }
+      animate();
+    </script>
+  </body>
+</html>
