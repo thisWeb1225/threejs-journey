@@ -43,15 +43,6 @@ const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 // Camera
-const aspectRatio: number = size.width / size.height;
-// const camera = new THREE.OrthographicCamera(
-//   -1 * aspectRatio,
-//   1 * aspectRatio,
-//   1,
-//   -1,
-//   1,
-//   100
-// );
 const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(75, size.width/size.height)
 camera.position.set(0, 0, 3);
 camera.lookAt(cube.position);

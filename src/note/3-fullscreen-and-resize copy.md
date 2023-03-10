@@ -1,3 +1,6 @@
+# 3. fullscreen-and-resize
+可以這樣設置來讓畫布充滿窗口，以及根據窗口 resize 調整畫布大小
+```ts
 import * as THREE from 'three'; 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
@@ -58,14 +61,6 @@ window.addEventListener('resize', () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-// double click to fullscreen
-window.addEventListener('dblclick', () => {
-  if (!document.fullscreenElement) {
-    canvas.requestFullscreen()
-  } else {
-    document.exitFullscreen()
-  }
-})
 
 // Animation
 const tick = () => {
@@ -77,3 +72,20 @@ const tick = () => {
 };
 
 tick()
+```
+使用 `setPixelRatio` 可以解決鋸齒的問題，但不需要設置太高，會影響性能  
+在選擇螢幕時也要注意，我們不需要那麼高的 piexl ratio，最多到 3 就好了，因為我們也幾乎看不出差別了  
+同時也要在 resize 事件中是置，因為使用者可能會拖動視窗到不同的顯示器中  
+
+## 雙擊進入全螢幕 (fullscreen)
+為了讓用戶有更好的體驗，我們可以設置雙擊進入全螢幕
+```ts
+// double click to fullscreen
+window.addEventListener('dblclick', () => {
+  if (!document.fullscreenElement) {
+    canvas.requestFullscreen()
+  } else {
+    document.exitFullscreen()
+  }
+})
+```
