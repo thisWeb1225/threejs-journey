@@ -10,7 +10,7 @@ PBR 原則是基於物理的渲染（Physically Based Rendering），基於與�
 UV unwrapping 是纹理在被放置在模型上的具体对应位置的控制，控制纹理拉伸的位置和方向等。
 
 而 UV 映射是在三維建模中將2D圖像投影到3D表面以進行紋理映射的過程。
-
+![label](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2479de5e7b094c96aefa2d503de9f605~tplv-k3u1fbpfcp-zoom-in-crop-mark%3A4536%3A0%3A0%3A0.awebp)
 字母U和V用來表示紋理貼圖上的坐標軸，因為XYZ已經用於表示三維空間中對象的坐標軸，而W（除了XYZ外）用於計算四元數，這是在電腦圖形學中的常見操作。
 
 可以打印出 uv 座標:
@@ -83,6 +83,7 @@ colorTexture.rotation = Math.PI / 4
 在三維計算機圖形的貼圖渲染中有一個常用的技術被稱為Mipmapping。 為了加快渲染速度和減少圖像鋸齒，貼圖被處理成由一系列被預先計算和優化過的圖片組成的檔， 這樣的貼圖被稱為 MIP map 或者 mipmap。 這個技術在三維遊戲中被非常廣泛的使用。 “MIP”來自於拉丁語 multum in parvo 的首字母，意思是“放置很多東西的小空間”。 Mipmap 需要佔用一定的記憶體空間，同時也遵循小波壓縮規則 （wavelet compression）。
 
 可以理解為Mipmapping會預先生成一系列圖片，在物體旋轉時，不同的角度看到不同的圖片，用於提高性能，空間換時間。
+
 ### Minification filter 縮小濾鏡
 縮小濾鏡（Minification Filters）詳見文檔 Textures
 
@@ -181,9 +182,11 @@ Data
 png 支援透明通道，而 jpg 不支援。 如果想擁有1個紋理包含顏色和透明度，最好使用 png。 png 也會包含更多資訊
 ## 小結
 本節我們學習了紋理相關的知識，知道了如何載入紋理，獲取載入進度，瞭解了 uv unwrapping，紋理的變換，放大和縮小濾鏡以及一些簡單的紋理相關的性能優化。 最後附上網上可以找到的比較好的紋理資源網站。 下一節我們將學習研究 Materials 材質。
-Textures 資源
 
-www.poliigon.com/
-3dtextures.me/
-www.arroway-textures.ch/
+
+### Textures 資源
+[www.poliigon.com/](https://www.poliigon.com/)  
+[3dtextures.me/](https://3dtextures.me/)  
+[www.arroway-textures.ch/](https://www.arroway-textures.ch/)  
+[https://polyhaven.com/](https://polyhaven.com/)
 
