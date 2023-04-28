@@ -149,21 +149,6 @@ colorTexture.magFilter = THREE.NearestFilter
 ```
 
 當我們使用非常小的紋理時，這個放大濾鏡就顯得非常有用了
-再看一組對比 minecraft 風格的立方體
-小貼圖為
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 magFilter 為 LinearFilter （預設）magFilter 為 NearestFilter
 另外在放大濾鏡下 NearestFilter 的性能也會更好。
@@ -175,11 +160,13 @@ magFilter 為 LinearFilter （預設）magFilter 為 NearestFilter
 * png 較小的失真壓縮，但體積更大
 
 同時可以使用 tinyPng 工具進行更好的壓縮
+
 ## 尺寸
 紋理會被存入 GPU 快取中，同時 mipmapping 的時候，會生成近2倍的圖片，因此盡可能讓圖片小。
 mipmapping 的操作是不斷的將圖片縮小一倍，直到 1 比 1 圖元，可理解為不停地除以2，所以建議使用 2 的 n 次冪的寬高尺寸圖片，如 512512、10241024、5122048 等，如果不是這樣的尺寸，ThreeJs 也會幫你優化，但可能會帶來額外的性能損耗或渲染問題。
 Data
 png 支援透明通道，而 jpg 不支援。 如果想擁有1個紋理包含顏色和透明度，最好使用 png。 png 也會包含更多資訊
+
 ## 小結
 本節我們學習了紋理相關的知識，知道了如何載入紋理，獲取載入進度，瞭解了 uv unwrapping，紋理的變換，放大和縮小濾鏡以及一些簡單的紋理相關的性能優化。 最後附上網上可以找到的比較好的紋理資源網站。 下一節我們將學習研究 Materials 材質。
 

@@ -132,7 +132,7 @@ material.flatShading = true
 MeshNormalMaterial 通常用於 debug 法線。
 
 
-### MeshMatcapMaterial
+## MeshMatcapMaterial
 
 MeshMatcapMaterial 由一個材質捕捉（MatCap，或光照球（Lit Sphere））紋理所定義，其編碼了材質的顏色與明暗。
 MeshMatcapMaterial 不對燈光作出反應。它會直接投射陰影到一個接受陰影的物體上（and shadow clipping works），但不會產生自身陰影或是接受陰影。
