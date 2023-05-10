@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 
 // canvas
-const canvas = document.querySelector('canvas')
+const canvas = document.querySelector('canvas')!
 
 // Scene
 const scene = new THREE.Scene();

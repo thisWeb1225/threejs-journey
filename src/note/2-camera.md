@@ -15,7 +15,7 @@ Camera 再 threejs 裡是一個類，不能直接使用，要藉由其他類型�
 * near: camera 能到看多近
 * far: camera 能看多遠
 
-![PerspectiveCamera](../asstes/img/2-camera.png)
+![PerspectiveCamera](../assets/images/2-camera.png)
 
 要注意 near 和 far 不要設置太極端的值，例如 0.00001 和 99999，這可能會讓 threejs 無法分辨物體的前後，導致閃動 bug
 
@@ -29,7 +29,7 @@ Camera 再 threejs 裡是一個類，不能直接使用，要藉由其他類型�
 * near — 攝像機視錐體近端面。
 * far — 攝像機視錐體遠端面。
 
-![OrthographicCamera](./../asstes/img/2-OrthographicCamera.png)
+![OrthographicCamera](./../assets/images/2-OrthographicCamera.png)
 
 為了保持 camera 的橫豎比例，需要保證 (rigth - left) 和 (top -bottom) 的比例與 canvas 比例一樣
 ```js

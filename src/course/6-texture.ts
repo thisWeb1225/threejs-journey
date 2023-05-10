@@ -47,7 +47,7 @@ const parameters: IParameters = {
  */
 const loadingManeger = new THREE.LoadingManager();
 const textureLoader = new THREE.TextureLoader(loadingManeger);
-const colorTexture = textureLoader.load('./../asstes/texture/Door_Wood_001_basecolor.jpg');
+const colorTexture = textureLoader.load('./../assets/texture/Door_Wood_001_basecolor.jpg');
 
 colorTexture.generateMipmaps = false;
 colorTexture.minFilter = THREE.NearestFilter;

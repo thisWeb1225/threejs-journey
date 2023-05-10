@@ -23,10 +23,10 @@ interface IParameters {
  */
 const loadingManeger = new THREE.LoadingManager();
 const textureLoader = new THREE.TextureLoader(loadingManeger);
-const doorColorTexture = textureLoader.load('./../asstes/texture/Door_Wood_001_basecolor.jpg');
-const doorOpacity = textureLoader.load('./../asstes/texture/Door_Wood_001_opacity.jpg');
-const doorHeight = textureLoader.load('./../asstes/texture/Door_Wood_001_height.png')
-const groundDirt = textureLoader.load('./../asstes/texture/GroundDirtRocky002_COL_2K.jpg')
+const doorColorTexture = textureLoader.load('./../assets/texture/Door_Wood_001_basecolor.jpg');
+const doorOpacity = textureLoader.load('./../assets/texture/Door_Wood_001_opacity.jpg');
+const doorHeight = textureLoader.load('./../assets/texture/Door_Wood_001_height.png')
+const groundDirt = textureLoader.load('./../assets/texture/GroundDirtRocky002_COL_2K.jpg')
 
 doorColorTexture.generateMipmaps = false;
 doorColorTexture.minFilter = THREE.NearestFilter;
