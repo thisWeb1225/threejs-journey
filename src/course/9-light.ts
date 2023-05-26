@@ -155,70 +155,70 @@ tick();
 const gui = new dat.GUI()
 
 const meshFolder = gui.addFolder('Mesh')
-meshFolder.add(material, 'metalness', 0, 1, 0.0001)
-meshFolder.add(material, 'roughness', 0, 1, 0.0001)
-meshFolder.add(material, 'wireframe')
+meshFolder.add(material as any, 'metalness', 0, 1, 0.0001)
+meshFolder.add(material as any, 'roughness', 0, 1, 0.0001)
+meshFolder.add(material as any, 'wireframe')
 
 const ambientLightFolder = gui.addFolder('AmbientLight')
-ambientLightFolder.add(ambientLight, 'visible').listen()
-ambientLightFolder.add(ambientLight, 'intensity', 0, 1, 0.001)
+ambientLightFolder.add(ambientLight as any, 'visible').listen()
+ambientLightFolder.add(ambientLight as any, 'intensity', 0, 1, 0.001)
 
 const directionalLightFolder = gui.addFolder('DirectionalLight')
 directionalLightFolder
-  .add(directionalLight, 'visible')
+  .add(directionalLight as any, 'visible')
   .onChange((visible: boolean) => {
     directionalLightHelper.visible = visible
   })
   .listen()
-directionalLightFolder.add(directionalLightHelper, 'visible').name('helper visible').listen()
-directionalLightFolder.add(directionalLight, 'intensity', 0, 1, 0.001)
+directionalLightFolder.add(directionalLightHelper as any, 'visible').name('helper visible').listen()
+directionalLightFolder.add(directionalLight as any, 'intensity', 0, 1, 0.001)
 
 const hemisphereLightFolder = gui.addFolder('HemisphereLight')
 hemisphereLightFolder
-  .add(hemisphereLight, 'visible')
+  .add(hemisphereLight as any, 'visible')
   .onChange((visible: boolean) => {
     hemisphereLightHelper.visible = visible
   })
   .listen()
-hemisphereLightFolder.add(hemisphereLightHelper, 'visible').name('helper visible').listen()
-hemisphereLightFolder.add(hemisphereLight, 'intensity', 0, 1, 0.001)
+hemisphereLightFolder.add(hemisphereLightHelper as any, 'visible').name('helper visible').listen()
+hemisphereLightFolder.add(hemisphereLight as any, 'intensity', 0, 1, 0.001)
 
 const pointLightFolder = gui.addFolder('PointLight')
 pointLightFolder
-  .add(pointLight, 'visible')
+  .add(pointLight as any, 'visible')
   .onChange((visible: boolean) => {
     pointLightHelper.visible = visible
   })
   .listen()
-pointLightFolder.add(pointLightHelper, 'visible').name('helper visible').listen()
-pointLightFolder.add(pointLight, 'distance', 0, 100, 0.00001)
-pointLightFolder.add(pointLight, 'decay', 0, 10, 0.00001)
+pointLightFolder.add(pointLightHelper as any, 'visible').name('helper visible').listen()
+pointLightFolder.add(pointLight as any, 'distance', 0, 100, 0.00001)
+pointLightFolder.add(pointLight as any, 'decay', 0, 10, 0.00001)
 
 const rectAreaLightFolder = gui.addFolder('RectAreaLight')
 rectAreaLightFolder
-  .add(rectAreaLight, 'visible')
+  .add(rectAreaLight as any, 'visible')
   .onChange((visible: boolean) => {
     rectAreaLightHelper.visible = visible
   })
   .listen()
-rectAreaLightFolder.add(rectAreaLightHelper, 'visible').name('helper visible').listen()
-rectAreaLightFolder.add(rectAreaLight, 'intensity', 0, 80, 0.0001)
-rectAreaLightFolder.add(rectAreaLight, 'width', 0, 5, 0.0001)
-rectAreaLightFolder.add(rectAreaLight, 'height', 0, 5, 0.0001)
+rectAreaLightFolder.add(rectAreaLightHelper as any, 'visible').name('helper visible').listen()
+rectAreaLightFolder.add(rectAreaLight as any, 'intensity', 0, 80, 0.0001)
+rectAreaLightFolder.add(rectAreaLight as any, 'width', 0, 5, 0.0001)
+rectAreaLightFolder.add(rectAreaLight as any, 'height', 0, 5, 0.0001)
 
 const spotLightFolder = gui.addFolder('SpotLight')
 spotLightFolder
-  .add(spotLight, 'visible')
+  .add(spotLight as any, 'visible')
   .onChange((visible: boolean) => {
     spotLightHelper.visible = visible
   })
   .listen()
-spotLightFolder.add(spotLightHelper, 'visible').name('helper visible').listen()
-spotLightFolder.add(spotLight, 'intensity', 0, 5, 0.001)
-spotLightFolder.add(spotLight, 'distance', 0, 20, 0.001)
-spotLightFolder.add(spotLight, 'angle', 0, Math.PI / 2, 0.001)
-spotLightFolder.add(spotLight, 'penumbra', 0, 1, 0.001)
-spotLightFolder.add(spotLight, 'decay', 0, 10, 0.001)
+spotLightFolder.add(spotLightHelper as any, 'visible').name('helper visible').listen()
+spotLightFolder.add(spotLight as any, 'intensity', 0, 5, 0.001)
+spotLightFolder.add(spotLight as any, 'distance', 0, 20, 0.001)
+spotLightFolder.add(spotLight as any, 'angle', 0, Math.PI / 2, 0.001)
+spotLightFolder.add(spotLight as any, 'penumbra', 0, 1, 0.001)
+spotLightFolder.add(spotLight as any, 'decay', 0, 10, 0.001)
 
 const guiObj = {
   turnOffAllLights() {
