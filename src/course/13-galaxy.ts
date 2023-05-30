@@ -35,7 +35,7 @@ const parameters = {
   branches: 3, // 決定分支數量
   spin: 2, // 增加旋轉角度
   randomness: 0.2, // 隨機擴散
-  randomnessPower: 2,
+  randomnessPower: 2, // 擴散羃數
   insideColor: '#ff6030',
   outsideColor: '#1b3984',
 };
@@ -168,6 +168,8 @@ gui.add(parameters, 'radius', 1, 20, 0.1).onFinishChange(generatorGalaxy);
 gui.add(parameters, 'branches', 2, 20, 1).onFinishChange(generatorGalaxy);
 gui.add(parameters, 'spin', 0.1, 20, 0.1).onFinishChange(generatorGalaxy);
 gui.add(parameters, 'randomness', 0.1, 20, 0.1).onFinishChange(generatorGalaxy);
-gui.add(parameters, 'randomnessPower', 0.1, 20, 0.1).onFinishChange(generatorGalaxy);
+gui
+  .add(parameters, 'randomnessPower', 0.1, 20, 0.1)
+  .onFinishChange(generatorGalaxy);
 gui.addColor(parameters, 'insideColor').onFinishChange(generatorGalaxy);
 gui.addColor(parameters, 'outsideColor').onFinishChange(generatorGalaxy);
