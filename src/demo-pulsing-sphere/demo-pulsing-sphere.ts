@@ -22,7 +22,6 @@ const circleCount = 19;
 const circleArr: any[] = [];
 
 for (let i = 1; i < circleCount + 1; i++) {
-  const radius = i < circleCount / 2 ? i : circleCount - i;
   const r = Math.floor(Math.random() * 50 + 40);
   const g = Math.floor(Math.random() * 50 + 70);
   const b = Math.floor(Math.random() * 50 + 150);
@@ -34,7 +33,7 @@ for (let i = 1; i < circleCount + 1; i++) {
       side: THREE.DoubleSide,
     })
   );
-  const positionZ = i - circleCount / 2;
+  const positionZ = (i - circleCount / 2) * 2;
   circle.position.set(0, 0, positionZ);
   circleArr.push(circle);
   scene.add(circle);
@@ -44,18 +43,18 @@ for (let i = 1; i < circleCount + 1; i++) {
  * Light
  */
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
 // ambientLight.color = new THREE.Color(0xffffff);
 // ambientLight.intensity = 0.5
 scene.add(ambientLight);
 
-const rectAreaLight = new THREE.RectAreaLight(0xffffff, 20, 5, 5);
-rectAreaLight.position.set(0, 10, 10);
+const rectAreaLight = new THREE.RectAreaLight(0xdddddd, 20, 5, 5);
+rectAreaLight.position.set(0, 20, 20);
 rectAreaLight.lookAt(new THREE.Vector3());
 scene.add(rectAreaLight);
 
-const rectAreaLight2 = new THREE.RectAreaLight(0xffffff, 20, 5, 5);
-rectAreaLight2.position.set(0, -10, -10);
+const rectAreaLight2 = new THREE.RectAreaLight(0xdddddd, 20, 5, 5);
+rectAreaLight2.position.set(0, -20, -20);
 rectAreaLight2.lookAt(new THREE.Vector3());
 scene.add(rectAreaLight2);
 
@@ -98,9 +97,9 @@ const tick: () => void = () => {
 
   circleArr.forEach((circle, i) => {
     circle.position.z += 0.02;
-    let size = Math.cos(circle.position.z / (circleCount / 2) * (Math.PI / 2)) * circleCount / 2;
+    let size = Math.cos(circle.position.z / (circleCount) * (Math.PI / 2)) * circleCount;
     circle.scale.set(size,size,size);
-    if (circle.position.z > circleCount / 2) circle.position.z = -(circleCount / 2);
+    if (circle.position.z > circleCount) circle.position.z = -(circleCount);
   })
 
   renderer.render(scene, camera);
